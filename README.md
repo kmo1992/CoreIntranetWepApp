@@ -5,10 +5,10 @@ The **_WindowsAuth_** project is configured to authenticate users with Windows A
 Role-based authorization is used to control access to controllers and actions. 
 
 The **_KeyAuth_** project uses a shared API Key for authentication,
-This authentication will be used to authenticate srvices on servers that are not on the same domain controller.
+This authentication will be used to authenticate services on servers that are not on the same domain controller.
 
 ## Database First
-This solution does not cover database development, but does assumes a Database First approach.
+This solution does not cover database development but does assume a Database First approach.
 
 #### Provision Database
 
@@ -35,10 +35,10 @@ dotnet ef dbcontext scaffold "Server=localhost;Database=Sample;Trusted_Connectio
 #### Data Transformation Objects 
 To generate the DTOs, I did the following.
 
-1. Copied all Models into DTOs directory (except AdUser, Role and RoleMember).
+1. Copied all Models into DTOs directory (except AdUser, Role, and RoleMember).
 2. Renamed classes with DTO suffix.
 3. Removed all HashSet and ICollection from DTO classes.
-4. Changed all Id (identity) fields to readonly (private set).
+4. Changed all Id (identity) fields to read-only (private set).
 5. Validation attributes are added to DTO properties.
 
 #### Automapper
@@ -56,9 +56,9 @@ Two things to remember when writing controllers:
 <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-3.1" target="_blank">Configure Windows Authentication in ASP.NET Core</a>
 
 ##### Role Based Authorization
-Role based lookups by authenticated users is implemented in _ClaimsTransformer.cs_.
+Role-based lookups by authenticated users are implemented in _ClaimsTransformer.cs_.
 
-Add **[Authorize]** to contollers and actions to lock down to authenticated users.
+Add **[Authorize]** to controllers and actions to lock down to authenticated users.
 
 To further restrict access to Admins, add **[Authorize(Roles = Shared.Roles.Admin)]**.
 
@@ -75,7 +75,7 @@ Error responses are handled with Validation Attributes and _ErrorController.cs_.
 <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/handle-errors?view=aspnetcore-3.1" target="_blank">Handle errors in ASP.NET Core web APIs</a>
 
 ## Logging
-All loggin will be written to Event logs. IT will user third party tools trigger error emails and consolidate reporting.
+All logging will be written to Event logs. IT will use third party tools to trigger error emails and consolidate reporting.
 
 TODO: Code to Event Log. 
 
