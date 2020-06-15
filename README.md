@@ -74,10 +74,5 @@ Error responses are handled with Validation Attributes and _ErrorController.cs_.
 
 <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/handle-errors?view=aspnetcore-3.1" target="_blank">Handle errors in ASP.NET Core web APIs</a>
 
-## Logging
-All logging will be written to Event logs. IT will use third party tools to trigger error emails and consolidate reporting.
-
-TODO: Code to Event Log. 
-
 
 
